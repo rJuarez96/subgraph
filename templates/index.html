@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clique Problem</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        var $SCRIPT_ROOT = {
+            {
+                request.script_root | tojson | safe
+            }
+        };
+    </script>
+</head>
+
+<body>
+        <form action="" method=post>
+            <p>
+                <input name="clauses" type=text>
+                <input class="btn myButton"type=submit value=Search>
+        </form>
+        <h1>{{clausula}}</h1>
+        <h2>{{maxclique}}</h2>
+
+</body>
+
+</html>
