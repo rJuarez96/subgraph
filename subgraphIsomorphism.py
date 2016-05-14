@@ -79,7 +79,7 @@ def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 pos
                 m0[row][n]=0 #mark c as unused
         return False"""
 def create(formula):
-    
+    return formula
     mat = getfor(formula) 
     ah=mat[0]
     ag=mat[1]
