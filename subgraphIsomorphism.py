@@ -85,7 +85,7 @@ def create(formula):
     degh=countVertexDegree(ah)
     degg=countVertexDegree(ag)
     m0=buildM(degh,degg)
-    print("--- %s seconds ---" % (time.time() - start_time))
+     print("--- %s seconds ---" % (time.time() - start_time))
     if (permute(m0,0,ah,ag)):
         return("YES!")
     else:
@@ -104,25 +104,24 @@ def getfor(formula):
 
     print("--- %s seconds ---" % (time.time() - start_time))
     return retCla
-def hacMa(algo):
-    clauses=algo.split("|")
-    clausula=[]
-    matriz=[]
-    for i in range (len(clauses)):
-            clau=clauses[i]
-            clauAp=clau.split(",")
-            
-            for j in range (len(clauAp)):
-                x=clauAp[j]
 
-                if x=="1":
-                    clausula.append(1)
-                else:
-                    clausula.append(0)
-                
-            matriz.append(clausula)
-            clausula=[]
-    return matriz     
+def hacMa(algo):
+    clauses=algo.split("],[")
+    print clauses
+    tuplas = []
+    arr=[]
+    for clause in clauses:
+        clause = map(int,clause.split(","))
+        tuplas.append(clause)
+    length=len(tuplas)
+    for n in range(length):
+        arr.append([])
+        for m in range(length):
+            arr[n].append(0)
+    for v in range(len(tuplas)):
+        for ve in tuplas[v]:
+            arr[v][ve-1]=1
+    return arr 
   
 '''def main():
     #ah=[[0,1,0,0],[1,0,1,1],[0,1,0,0],[0,1,0,0]] #Matriz de adyacencia del grafo H
