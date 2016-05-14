@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         clauses = request.form.get('clauses',False,type=str)
-        clauses2 = request.form.get('clauses2',False,type=str)
+        
         if(not clauses):
             return render_template('index.html',clausula = clauses,maxclique="Escriba una clausula")
         maxclique = subgraphIsomorphism.create(str(clauses))
