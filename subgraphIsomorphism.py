@@ -94,20 +94,25 @@ def create(formula):
 
             
 def getfor(formula):
-    formula = formula[1:-1]
+    
+    
+   
     retCla=[]
     clauses=formula.split("/")
-    clause1=hacMa(clauses[0])
-    clause2=hacMa(clauses[1])
+    
+    
+    clause1=hacMa(clauses[0][3:-2])
+    clause2=hacMa(clauses[1][2:-3])
     retCla.append(clause1)
     retCla.append(clause2)
 
-    print("--- %s seconds ---" % (time.time() - start_time))
+    
     return retCla
 
 def hacMa(algo):
+    
     clauses=algo.split("],[")
-    print clauses
+    
     tuplas = []
     arr=[]
     for clause in clauses:
@@ -122,6 +127,7 @@ def hacMa(algo):
         for ve in tuplas[v]:
             arr[v][ve-1]=1
     return arr 
+
   
 '''def main():
     #ah=[[0,1,0,0],[1,0,1,1],[0,1,0,0],[0,1,0,0]] #Matriz de adyacencia del grafo H
