@@ -5,7 +5,7 @@ G=nx.Graph()
 import time
 start_time=time.time()
 
-def countVertexDegree(matrix): #Crea una lista con los grados de cada vértice en el grafo que recibe
+def countVertexDegree(matrix): #Crea una lista con los grados de cada vrtice en el grafo que recibe
     degree=[]
     deg=0
     for row in matrix:
@@ -16,13 +16,13 @@ def countVertexDegree(matrix): #Crea una lista con los grados de cada vértice e
         deg=0
     return degree
     
-def buildM(h,g): #Crea una matriz M0 comparando los grados de cada vértice de los grafos H y G
+def buildM(h,g): #Crea una matriz M0 comparando los grados de cada vrtice de los grafos H y G
     m0=[]
     for n in range(len(g)):
         m0.append([])
     for i in range(len(g)):
         for j in range(len(h)):
-            m0[i].append((h[j]>=g[i]).real) #1 si el grado del vértice Vhj >= grado del vértice Vgi
+            m0[i].append((h[j]>=g[i]).real) #1 si el grado del vrtice Vhj >= grado del vrtice Vgi
     return m0
 
 def prune(m,i,j,ag,ah):
@@ -34,7 +34,7 @@ def prune(m,i,j,ag,ah):
                 if(m[x][y]*ah[y][j]):
                     return True
     
-def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 posibles y prueba si son isomórficas
+def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 posibles y prueba si son isomrficas
     if(row==len(m0)):
         n=0
         for i in range(len(m0[0])):
@@ -54,8 +54,8 @@ def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 pos
             return True
     else:
         arr1=m0[row][:] #Guarda copia de m0[row]
-        arr2=[i for i, x in enumerate(arr1) if x] #Crea una lista con los índices donde hay 1 en arr1
-        for n in range(len(arr2)): #Cambia todos los 1 a 0 excepto el n-ésimo
+        arr2=[i for i, x in enumerate(arr1) if x] #Crea una lista con los ndices donde hay 1 en arr1
+        for n in range(len(arr2)): #Cambia todos los 1 a 0 excepto el n-simo
             for i in arr2:
                 if i!=arr2[n]:
                     m0[row][i]=0
