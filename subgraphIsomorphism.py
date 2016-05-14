@@ -80,7 +80,7 @@ def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 pos
         return False"""
             
 
-def main():
+'''def main():
     #ah=[[0,1,0,0],[1,0,1,1],[0,1,0,0],[0,1,0,0]] #Matriz de adyacencia del grafo H
     #ag=[[0,0,1],[0,0,1],[1,1,0]] #Matriz de adyacencia del grafo G
     #ah=[[0,1,0,1,1],[1,0,1,0,1],[0,1,0,1,1],[1,0,1,0,1],[1,1,1,1,0]]
@@ -110,4 +110,4 @@ def main():
     else:
         print("No")
     print("--- %s seconds ---" % (time.time() - start_time))
-main()
+main()'''
