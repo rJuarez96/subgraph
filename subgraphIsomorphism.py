@@ -79,8 +79,9 @@ def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 pos
                 m0[row][n]=0 #mark c as unused
         return False"""
 def create(formula):
-    g = getfor(formula) 
-    return g           
+    ah = getfor(formula) 
+    degh=countVertexDegree(ah)
+    return degh          
 def getfor(formula):
     formula = formula[1:-1]
     clauses=formula.split("|")
