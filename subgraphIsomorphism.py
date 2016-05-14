@@ -83,12 +83,21 @@ def create(formula):
     return g           
 def getfor(formula):
     formula = formula[1:-1]
-    clauses = formula.split("),(")
-    tuplas = []
-    for clause in clauses:
-        clause = tuple(map(int,clause.split(",")))
-        tuplas.append(clause)
-    return tuplas
+    clauses=algo.split("|")
+    clausula=[]
+    matriz=[]
+    for i in range (len(clauses)):
+        clau=clauses[i]
+        clauAp=clau.split(",")
+        
+        for j in range (len(clauAp)):
+            x=clauAp[j]
+            clausula.append(int(x))
+                
+        matriz.append(clausula)
+        clausula=[]
+
+    return matriz
 '''def main():
     #ah=[[0,1,0,0],[1,0,1,1],[0,1,0,0],[0,1,0,0]] #Matriz de adyacencia del grafo H
     #ag=[[0,0,1],[0,0,1],[1,1,0]] #Matriz de adyacencia del grafo G
