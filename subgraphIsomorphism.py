@@ -92,8 +92,10 @@ def getfor(formula):
         
         for j in range (len(clauAp)):
             x=clauAp[j]
-            clausula.append(int(x))
-                
+            if x=="1":
+                clausula.append(1)
+            else:
+                clausula.append(0)
         matriz.append(clausula)
         clausula=[]
 
