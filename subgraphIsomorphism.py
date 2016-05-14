@@ -79,28 +79,40 @@ def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 pos
                 m0[row][n]=0 #mark c as unused
         return False"""
 def create(formula):
-    ah = getfor(formula) 
+    mat = getfor(formula) 
+    ah=mat[0]
+    ag=mat[1]
     degh=countVertexDegree(ah)
     return degh          
 def getfor(formula):
     formula = formula[1:-1]
-    clauses=formula.split("|")
+    retCla=[]
+    clauses=formula.split("/")
+    clause1=hacMa(clauses[0])
+    clause2=hacMa(clauses[1])
+    retCla.append(clause1)
+    retCla.append(clause2)
+    return retCla
+def hacMa(algo):
+    clauses=algo.split("|")
     clausula=[]
     matriz=[]
     for i in range (len(clauses)):
-        clau=clauses[i]
-        clauAp=clau.split(",")
-        
-        for j in range (len(clauAp)):
-            x=clauAp[j]
-            if x=="1":
-                clausula.append(1)
-            else:
-                clausula.append(0)
-        matriz.append(clausula)
-        clausula=[]
+            clau=clauses[i]
+            clauAp=clau.split(",")
+            
+            for j in range (len(clauAp)):
+                x=clauAp[j]
 
-    return matriz
+                if x=="1":
+                    clausula.append(1)
+                else:
+                    clausula.append(0)
+                
+            matriz.append(clausula)
+            clausula=[]
+    return matriz     
+  
 '''def main():
     #ah=[[0,1,0,0],[1,0,1,1],[0,1,0,0],[0,1,0,0]] #Matriz de adyacencia del grafo H
     #ag=[[0,0,1],[0,0,1],[1,1,0]] #Matriz de adyacencia del grafo G
