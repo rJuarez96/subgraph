@@ -83,7 +83,16 @@ def create(formula):
     ah=mat[0]
     ag=mat[1]
     degh=countVertexDegree(ah)
-    return degh          
+    degg=countVertexDegree(ag)
+    m0=buildM(degh,degg)
+    print("--- %s seconds ---" % (time.time() - start_time))
+    if (permute(m0,0,ah,ag)):
+        return("YES!")
+    else:
+        return("No")
+    
+
+            
 def getfor(formula):
     formula = formula[1:-1]
     retCla=[]
@@ -92,6 +101,8 @@ def getfor(formula):
     clause2=hacMa(clauses[1])
     retCla.append(clause1)
     retCla.append(clause2)
+
+    print("--- %s seconds ---" % (time.time() - start_time))
     return retCla
 def hacMa(algo):
     clauses=algo.split("|")
