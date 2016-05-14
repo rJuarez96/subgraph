@@ -78,8 +78,17 @@ def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 pos
             else:
                 m0[row][n]=0 #mark c as unused
         return False"""
-            
-
+def create(formula):
+    g = getfor(formula) 
+    return g           
+def getfor(formula):
+    formula = formula[1:-1]
+    clauses = formula.split("),(")
+    tuplas = []
+    for clause in clauses:
+        clause = tuple(map(int,clause.split(",")))
+        tuplas.append(clause)
+    return tuplas
 '''def main():
     #ah=[[0,1,0,0],[1,0,1,1],[0,1,0,0],[0,1,0,0]] #Matriz de adyacencia del grafo H
     #ag=[[0,0,1],[0,0,1],[1,1,0]] #Matriz de adyacencia del grafo G

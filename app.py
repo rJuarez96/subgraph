@@ -10,7 +10,7 @@ def index():
         clauses = request.form.get('clauses',False,type=str)
         if(not clauses):
             return render_template('index.html',clausula = clauses,maxclique="Escriba una clausula")
-        maxclique = subgraphIsomorphism.countVertexDegree(str(clauses))
+        maxclique = subgraphIsomorphism.create(str(clauses))
         return render_template('index.html',clausula = clauses,maxclique = maxclique )
     else:
         return render_template('index.html',maxclique="Escriba una clausula")
