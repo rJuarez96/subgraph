@@ -83,7 +83,7 @@ def create(formula):
     return g           
 def getfor(formula):
     formula = formula[1:-1]
-    clauses=algo.split("|")
+    clauses=formula.split("|")
     clausula=[]
     matriz=[]
     for i in range (len(clauses)):
