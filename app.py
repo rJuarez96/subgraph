@@ -10,7 +10,7 @@ def index():
         clauses = request.form.get('clauses',False,type=str)
         clauses2 = request.form.get('clauses2',False,type=str)
         clausesCon=clauses+"/"+clauses2
-        clausesCon2=clauses+"        "+clauses2
+        clausesCon2=clauses+"   \t  \t   "+clauses2
 
         if(not clauses):
             return render_template('index.html',clausula = clausesCon2,maxclique="Escriba una clausula")
