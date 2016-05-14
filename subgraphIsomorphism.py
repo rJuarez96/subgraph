@@ -85,7 +85,7 @@ def create(formula):
     degh=countVertexDegree(ah)
     degg=countVertexDegree(ag)
     m0=buildM(degh,degg)
-     print("--- %s seconds ---" % (time.time() - start_time))
+    
     if (permute(m0,0,ah,ag)):
         return("YES!")
     else:
