@@ -79,7 +79,7 @@ def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 pos
                 m0[row][n]=0 #mark c as unused
         return False"""
 def create(formula):
-    return formula
+    
     mat = getfor(formula) 
     ah=mat[0]
     ag=mat[1]
@@ -102,8 +102,8 @@ def getfor(formula):
     clauses=formula.split("/")
     
     
-    clause1=hacMa(clauses[0][3:-2])
-    clause2=hacMa(clauses[1][3:-2])
+    clause1=hacMa(clauses[0][2:-2])
+    clause2=hacMa(clauses[1][2:-2])
     retCla.append(clause1)
     retCla.append(clause2)
 
