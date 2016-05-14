@@ -1,6 +1,7 @@
-#Encoding: UTF-8
-#Autor: Aldo R. Gómez
-#Ullmann's Algorithm
+import networkx as nx
+import itertools
+
+G=nx.Graph()
 import time
 start_time=time.time()
 

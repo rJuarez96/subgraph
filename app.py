@@ -3,14 +3,14 @@ from flask import *
 import clique
 
 app = Flask(__name__)
-
+maxclique=""
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         clauses = request.form.get('clauses',False,type=str)
         if(not clauses):
             return render_template('index.html',clausula = clauses,maxclique="Escriba una clausula")
-        #maxclique = clique.create(str(clauses))
+        maxclique = clique.create(str(clauses))
         return render_template('index.html',clausula = clauses,maxclique = maxclique )
     else:
         return render_template('index.html',maxclique="Escriba una clausula")
