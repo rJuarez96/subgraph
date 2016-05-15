@@ -20,9 +20,9 @@ def index():
         if(not clauses):
             if(not test):
                 return render_template('index.html',clausula = clausesCon2,maxclique="Ingrese un grafo")
-            maxclique = subgraphIsomorphism.create(str(clausesCon))  
+            maxclique = subgraphIsomorphism.create(str(testCon))  
             return render_template('index.html',clausula = str(testCon2),maxclique = maxclique )      
-        maxclique = subgraphIsomorphism.create(str(testCon))
+        maxclique = subgraphIsomorphism.create(str(clausesCon))
         
         return render_template('index.html',clausula = str(clausesCon2),maxclique = maxclique )
     else:
