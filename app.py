@@ -11,11 +11,14 @@ def index():
         clauses2 = request.form.get('clauses2',False,type=str)
         clausesCon=clauses+"/"+clauses2
         clausesCon2=clauses+"------------------------"+clauses2
+        test=request.form.get('clausesN',False,type=str)
+        test2=request.form.get('clausesN2',False,type=str)
 
-        if(not clauses):
+        if(not clauses and not test):
             return render_template('index.html',clausula = clausesCon2,maxclique="Ingrese un grafo")
-        maxclique = subgraphIsomorphism.create(str(clausesCon))
-        return render_template('index.html',clausula = clausesCon2,maxclique = maxclique )
+        #maxclique = subgraphIsomorphism.create(str(clausesCon))
+        maxclique=str(test)
+        return render_template('index.html',clausula = str(test2),maxclique = maxclique )
     else:
         return render_template('index.html',maxclique="Ingrese un grafo")
 	
