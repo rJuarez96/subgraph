@@ -4,14 +4,16 @@ import itertools
 G=nx.Graph()
 import time
 start_time=time.time()
-
+steps=0
 def countVertexDegree(matrix): #Crea una lista con los grados de cada vrtice en el grafo que recibe
+    global steps
     degree=[]
     deg=0
     for row in matrix:
         for bit in row:
             if bit==1:
                 deg+=1
+                steps+=1
         degree.append(deg)
         deg=0
     return degree
@@ -26,27 +28,33 @@ def buildM(h,g): #Crea una matriz M0 comparando los grados de cada vrtice de los
     return m0
 
 def prune(m,i,j,ag,ah):
+    global steps
     #print(i,j,m)
     #print("\n")
     for x in range(len(ag)):
         if(ag[i][x]):
             for y in range(len(ah)):
+                steps+=1
                 if(m[x][y]*ah[y][j]):
                     return True
     
 def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 posibles y prueba si son isomrficas
+    global steps
     if(row==len(m0)):
         n=0
         for i in range(len(m0[0])):
             for j in range(len(m0)):
                 n+=m0[j][i]
+                steps+=1
             if(n>1):
                 return
             n=0
         
         res=[[sum(a*b for a,b in zip(m0_row,h_col)) for h_col in zip(*h)] for m0_row in m0]
+        steps+=((2*len(h)-1)*(len(res)*len(res[0])))
         resTr=[[res[j][i] for j in range(len(res))] for i in range(len(res[0]))]
         arr=[[sum(a*b for a,b in zip(m0_row,resTr_col)) for resTr_col in zip(*resTr)] for m0_row in m0]
+        steps+=((2*len(resTr)-1)*(len(arr)*len(arr[0])))
         if(g==arr): #<= para subgrafos inducidos
             for ro in m0:
                 print(ro)
@@ -69,7 +77,7 @@ def permute(m0,row,h,g): #Crea todas las permutaciones de la matriz padre M0 pos
                 m0[row]=arr1[:]
         return False
 def create(formula):
-    
+    global steps
     mat = getfor(formula) 
     ah=mat[0]
     ag=mat[1]
@@ -78,7 +86,7 @@ def create(formula):
     m0=buildM(degh,degg)
     
     if (permute(m0,0,ah,ag)):
-        return("YES!")
+        return("YES!  "+str(steps))
     else:
         return("No")
     
