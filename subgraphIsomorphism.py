@@ -86,7 +86,9 @@ def create(formula):
     m0=buildM(degh,degg)
     
     if (permute(m0,0,ah,ag)):
-        return("YES!  "+str(steps))
+        pasos=str(steps)
+        steps=0
+        return("YES!  "+pasos)
     else:
         return("No")
     
