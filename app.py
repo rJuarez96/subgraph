@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
+    global steps
+    steps=0
     if request.method == 'POST':
         clauses = request.form.get('clauses',False,type=str)
         clauses2 = request.form.get('clauses2',False,type=str)
