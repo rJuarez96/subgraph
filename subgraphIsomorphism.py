@@ -88,9 +88,11 @@ def create(formula):
     if (permute(m0,0,ah,ag)):
         pasos=str(steps)
         steps=0
-        return("YES!  "+pasos)
+        return("YES!  "+pasos+" pasos basicos")
     else:
-        return("No")
+        pasos=str(steps)
+        steps=0
+        return("No "+pasos+" pasos basicos")
     
 
             
